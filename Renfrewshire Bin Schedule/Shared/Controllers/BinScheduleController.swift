@@ -38,12 +38,22 @@ class BinScheduleController: ObservableObject  {
     init(scheduleYear: Int, location: String) {
         self.scheduleYear = scheduleYear
         self.location = location
-        
-        // Attempt to load cached collections first.
         loadCollectionsFromCache()
-        
-        // Then fetch new data in the background.
         fetchCollections()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(rescheduleNotifications),
+            name: NSNotification.Name("notificationTimeDidChange"),
+            object: nil
+        )
+    }
+
+    @objc func rescheduleNotifications() {
+        scheduleNotificationsForUpcomingCollections()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     // Fetch collection dates from JSON using the dynamically generated URL.
@@ -139,59 +149,62 @@ class BinScheduleController: ObservableObject  {
     func scheduleNotifications(for collection: BinCollection, location: String) {
         let content = UNMutableNotificationContent()
         content.title = "Bin Collection in \(location)"
-        
         let binNames = collection.bins.map { $0.displayName }.joined(separator: ", ")
         content.body = "Tomorrow's collection: \(binNames)"
         content.sound = .default
-        
+
         // Use London time zone for all calculations
         var londonCalendar = Calendar(identifier: .gregorian)
         guard let londonTimeZone = TimeZone(identifier: "Europe/London") else { return }
         londonCalendar.timeZone = londonTimeZone
-        
-        // Set the collection time 
-        guard let scheduledDate = londonCalendar.date(
-            bySettingHour: 15,
-            minute: 00,
-            second: 50,
-            of: collection.date
-        ) else {
-            print("Failed to set time for \(collection.date)")
+
+        // Get the day before the collection
+        guard let dayBefore = londonCalendar.date(byAdding: .day, value: -1, to: collection.date) else {
+            print("Failed to get day before")
             return
         }
-        
-        // Calculate the day before (for notification)
-        guard let dayBefore = londonCalendar.date(
-            byAdding: .day,
-            value: -1,
-            to: scheduledDate
-        ) else {
-            print("Failed to subtract day")
+
+        // Retrieve user's preferred notification time from UserDefaults
+        let userDefaults = UserDefaults.standard
+        let notificationTime = userDefaults.object(forKey: "notificationTime") as? Date ??
+            londonCalendar.date(bySettingHour: 15, minute: 0, second: 0, of: Date()) ?? Date()
+        let timeComponents = londonCalendar.dateComponents([.hour, .minute], from: notificationTime)
+        let notificationHour = timeComponents.hour ?? 15
+        let notificationMinute = timeComponents.minute ?? 0
+
+        // Set the trigger time on the day before using user's selected time
+        var dateComponents = londonCalendar.dateComponents([.year, .month, .day], from: dayBefore)
+        dateComponents.hour = notificationHour
+        dateComponents.minute = notificationMinute
+        dateComponents.second = 0
+
+        guard let triggerDate = londonCalendar.date(from: dateComponents) else {
+            print("Failed to create trigger date")
             return
         }
-        
+
+        // Skip if the trigger time is in the past
+        if triggerDate <= Date() {
+            print("Trigger time is in the past. Skipping notification for \(collection.date)")
+            return
+        }
+
         // Debug print (London time)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm z"
         formatter.timeZone = londonTimeZone
-        
         print("Current London time: \(formatter.string(from: Date()))")
-        print("Notification scheduled for \(formatter.string(from: dayBefore))")
-        
-        // Check if the trigger is in the future
-        if dayBefore <= Date() {
-            print("Trigger time is in the past. Adjust your scheduling logic.")
-            return
-        }
-        
-        let components = londonCalendar.dateComponents([.year, .month, .day, .hour, .minute], from: dayBefore)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        print("Notification scheduled for \(formatter.string(from: triggerDate))")
+
+        // Create the notification trigger
+        let triggerComponents = londonCalendar.dateComponents([.year, .month, .day, .hour, .minute], from: triggerDate)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerComponents, repeats: false)
         let request = UNNotificationRequest(
             identifier: UUID().uuidString,
             content: content,
             trigger: trigger
         )
-        
+
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("Error scheduling notification: \(error.localizedDescription)")

@@ -32,7 +32,11 @@ struct TipJarView: View {
             ZStack {
                 Form {
                     Section(header: Text("Support the App")) {
-                        Text("If you enjoy using this app, please consider donating. It will help me to keep it free and allow me to add new features. You will also unlock the Ball minigame!")
+                        if (!hasDonated){
+                            Text("If you enjoy using this app, please consider donating. It will help me to keep it free and allow me to add new features. You will also unlock the Ball minigame, notification time setting and accent colour setting!")
+                        } else {
+                            Text("Thank you for your donation! If you want, you can donate more in the future.")
+                        }
                         
                         if isLoading {
                             ProgressView("Loading donation options…")
