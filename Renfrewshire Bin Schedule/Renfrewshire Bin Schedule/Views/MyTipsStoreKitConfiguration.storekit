@@ -1,0 +1,131 @@
+{
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "B52E5A2A",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "EEC10DB4",
+      "localizations" : [
+        {
+          "description" : "Treat me to a Wee Tablet",
+          "displayName" : "Wee Tablet-Sized Tip",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "Bins.Ren.Renfrewshire.tipTiny",
+      "referenceName" : "tip.tiny",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "9CA50C8E",
+      "localizations" : [
+        {
+          "description" : "Treat me to a Scotch Pie",
+          "displayName" : "Scotch Pie-Sized Tip",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "Bins.Ren.Renfrewshire.tipMid",
+      "referenceName" : "tip.mid",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "8.99",
+      "familyShareable" : false,
+      "internalID" : "813A926A",
+      "localizations" : [
+        {
+          "description" : "Treat me to a Haggis, Neeps&Tatties-Sized Tip",
+          "displayName" : "Haggis,Neeps&Tatties-Sized Tip",
+          "locale" : "en_GB"
+        }
+      ],
+      "productID" : "Bins.Ren.Renfrewshire.tipBig",
+      "referenceName" : "tip.big",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_GB",
+    "_storefront" : "GBR",
+    "_storeKitErrors" : [
+      {
+        "current" : {
+          "index" : 2,
+          "type" : "generic"
+        },
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : {
+          "index" : 2,
+          "type" : "generic"
+        },
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : {
+          "index" : 0,
+          "type" : "verification"
+        },
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		428A6A162D6CD32F007C69C0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428A6A152D6CD32F007C69C0 /* StoreKit.framework */; };
 		42A3ADDC2D68EEB600F4B35D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A3ADDB2D68EEB600F4B35D /* AdSupport.framework */; };
 		42A3ADDE2D68F38100F4B35D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42A3ADDD2D68F38100F4B35D /* GoogleService-Info.plist */; };
 		42A3ADDF2D68F3C300F4B35D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42A3ADDD2D68F38100F4B35D /* GoogleService-Info.plist */; };
@@ -74,6 +75,7 @@
 		423BE5AC2D63A0780029E193 /* Renfrewshire Bin Schedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Renfrewshire Bin Schedule.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		423BE5BE2D63A07A0029E193 /* Renfrewshire Bin ScheduleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Renfrewshire Bin ScheduleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		423BE5C82D63A07A0029E193 /* Renfrewshire Bin ScheduleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Renfrewshire Bin ScheduleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		428A6A152D6CD32F007C69C0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		42A3ADDB2D68EEB600F4B35D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		42A3ADDD2D68F38100F4B35D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		42D793E32D66AABC00BF615F /* Renfrewshire Bin Schedule on a wrist Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Renfrewshire Bin Schedule on a wrist Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				428A6A162D6CD32F007C69C0 /* StoreKit.framework in Frameworks */,
 				42A3ADE62D68F4A900F4B35D /* FirebaseAnalytics in Frameworks */,
 				42A3ADDC2D68EEB600F4B35D /* AdSupport.framework in Frameworks */,
 			);
@@ -199,6 +202,7 @@
 		42A3ADDA2D68EEB600F4B35D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				428A6A152D6CD32F007C69C0 /* StoreKit.framework */,
 				42A3ADDB2D68EEB600F4B35D /* AdSupport.framework */,
 			);
 			name = Frameworks;
@@ -661,8 +665,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Renfrewshire Bin Schedule/Renfrewshire Bin Schedule.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Renfrewshire Bin Schedule/Preview Content\"";
 				DEVELOPMENT_TEAM = 273S9AT9T6;
 				ENABLE_PREVIEWS = YES;
@@ -676,14 +681,15 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Bins.Ren.Renfrewshire-Bin-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -697,8 +703,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Renfrewshire Bin Schedule/Renfrewshire Bin Schedule.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Renfrewshire Bin Schedule/Preview Content\"";
 				DEVELOPMENT_TEAM = 273S9AT9T6;
 				ENABLE_PREVIEWS = YES;
@@ -712,15 +719,16 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2.2;
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bins.Ren.Renfrewshire-Bin-Schedule";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -806,7 +814,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Renfrewshire Bin Schedule on a wrist Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 273S9AT9T6;
 				ENABLE_PREVIEWS = YES;
@@ -819,7 +827,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Bins.Ren.Renfrewshire-Bin-Schedule.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -838,7 +846,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Renfrewshire Bin Schedule on a wrist Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 273S9AT9T6;
 				ENABLE_PREVIEWS = YES;
@@ -851,7 +859,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Bins.Ren.Renfrewshire-Bin-Schedule.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
